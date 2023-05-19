@@ -13,21 +13,27 @@ class RegistrationFormComponent extends Component
     use EmitsMessages;
 
     public Collection $roles;
+
     public string $role = '';
+
     public string $email = '';
+
     public string $name = '';
+
     public string $password = '';
+
     public string $password_confirmation = '';
+
     public string $identification_number = '';
 
     protected function rules()
     {
         return [
-            'role' => 'required|in:' . Roles::implodedValues(),
+            'role' => 'required|in:'.Roles::implodedValues(),
             'email' => 'required|email|unique:users,email',
             'name' => 'required|string',
             'password' => 'required|confirmed|min:6',
-            'identification_number' => 'required_if:role,' . Roles::Company->value
+            'identification_number' => 'required_if:role,'.Roles::Company->value,
         ];
     }
 

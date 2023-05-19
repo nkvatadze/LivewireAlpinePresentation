@@ -1,5 +1,6 @@
 <form wire:submit.prevent="submit" class="h-full flex items-center justify-center"
       autocomplete="off" autofill="false">
+    @csrf
     <div class="flex flex-col justify-center items-center gap-5 h-full w-1/4">
 
         <livewire:form.flash-messages/>

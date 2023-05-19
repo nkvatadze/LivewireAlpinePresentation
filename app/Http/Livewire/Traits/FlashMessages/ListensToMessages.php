@@ -7,7 +7,7 @@ trait ListensToMessages
     public function bootedListensToMessages()
     {
         $this->listeners = array_merge($this->listeners, [
-            'success' => 'successFlashMessage'
+            'success' => 'successFlashMessage',
         ]);
     }
 

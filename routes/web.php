@@ -21,3 +21,5 @@ Route::get('/', function () {
 
 Route::get('counter', CounterIndexComponent::class);
 Route::get('register', RegistrationFormComponent::class);
+
+Route::get('users', fn () => view('alpine.users.search'));

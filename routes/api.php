@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('users', function (Request $request) {
+    $validated = $request->validate([
+        'search' => 'sometimes|string|max:50',
+    ]);
+
+    return response()->json([
+        'users' => User::query()
+            ->when(
+                isset($validated['search']),
+                fn (Builder $query) => $query->where('email', 'like', "%{$validated['search']}%")
+            )
+            ->latest()
+            ->limit(20)
+            ->get(),
+    ]);
 });

@@ -17,7 +17,7 @@ enum Roles: string
 
     public static function options(): Collection
     {
-        return self::toCollection()->pluck('name', 'value')->map(fn($option) => Str::headline($option));
+        return self::toCollection()->pluck('name', 'value')->map(fn ($option) => Str::headline($option));
     }
 
     public static function toCollection(): Collection
