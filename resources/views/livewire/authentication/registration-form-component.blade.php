@@ -17,15 +17,12 @@
 
         <x-form.input type="email" name="email" id="email" placeholder="Email" wire:model="email"></x-form.input>
 
-        <input
-            class="border px-2 border-gray-300 rounded-md  py-1.5 w-full {{ $errors->has('password') ? 'border-red-600' : 'border-gray-300'}}"
-            placeholder="Password" type="password"
-            wire:model="password">
-        @error('password') <span class="text-red-600">{{ $message }}</span> @enderror
 
-        <input class="border px-2 border-gray-300 rounded-md  py-1.5 w-full" placeholder="Confirm Password"
-               type="password" wire:model="password_confirmation">
-        @error('password_confirmation') <span class="text-red-600">{{ $message }}</span> @enderror
+        <x-form.input type="password" name="password" id="password" placeholder="Password"
+                      wire:model="password"></x-form.input>
+
+        <x-form.input type="password" name="password_confirmation" id="password_confirmation"
+                      placeholder="Password Confirmation" wire:model="password_confirmation"></x-form.input>
 
         @if($role === \App\Enums\Roles::Company->value)
             <x-form.input type="number" name="identification_number" id="identification_number"
@@ -37,5 +34,4 @@
             Save Contact
         </button>
     </div>
-
 </form>
