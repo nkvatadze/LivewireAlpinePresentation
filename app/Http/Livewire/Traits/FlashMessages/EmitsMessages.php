@@ -7,8 +7,7 @@ trait EmitsMessages
     public function sendSuccessMessage(string $message)
     {
         $event = 'success';
-        $this->emit($event, $message);
 
-        session()->flash($event, $message);
+        $this->emit($event, $message);
     }
 }

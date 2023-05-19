@@ -37,7 +37,7 @@ class RegistrationFormComponent extends Component
         ];
     }
 
-    public function mount(User $user)
+    public function mount()
     {
         $this->roles = Roles::options();
         $this->role = Roles::Customer->value;
