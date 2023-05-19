@@ -1,11 +1,11 @@
-<div class="flex justify-center items-center gap-5">
-    <button wire:click="decrement">
+<div class="h-full flex justify-center items-center gap-5 text-3xl">
+    <button class="rounded-md border border-gray-500 p-2 " wire:click="decrement">
         -
     </button>
     <div>
         {{ $counter }}
     </div>
-    <button wire:click="increment">
+    <button class="rounded-md border border-gray-500 p-2 " wire:click="increment">
         +
     </button>
 </div>
