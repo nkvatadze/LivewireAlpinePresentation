@@ -6,7 +6,6 @@ use App\Enums\Roles;
 use App\Http\Livewire\Traits\FlashMessages\EmitsMessages;
 use App\Models\User;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Password;
 use Livewire\Component;
 
 class RegistrationFormComponent extends Component
@@ -28,7 +27,7 @@ class RegistrationFormComponent extends Component
             'email' => 'required|email|unique:users,email',
             'name' => 'required|string',
             'password' => 'required|confirmed|min:6',
-            'identification_number' => 'required_if:roles,' . Roles::Company->value
+            'identification_number' => 'required_if:role,' . Roles::Company->value
         ];
     }
 
